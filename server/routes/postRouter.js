@@ -11,7 +11,7 @@ postRouter.use(bodyParser.json());
 /* GET posts listing. */
 // should make a call to the database and retreive latest 10 public posts(on sidebar)
 postRouter.all('/*', function(request, response, next) {
-  response.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  response.header("Access-Control-Allow-Origin", "*");
   response.header("Access-Control-Allow-Headers", 'Content-Type, x-access-token');
   response.header("Access-Control-Allow-Methods", "GET, POST, DELETE");
   next();

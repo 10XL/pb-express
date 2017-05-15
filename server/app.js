@@ -34,6 +34,13 @@ var app = express();
 //  res.redirect('https://'+req.hostname+':'+app.get('secPort')+req.url);
 // });
 
+ var forceSsl = function (req, res, next) {
+    if (req.headers['x-forwarded-proto'] !== 'https') {
+        return res.redirect(['https://', req.get('Host'), req.url].join(''));
+    }
+    return next();
+ };
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -64,6 +71,13 @@ app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
+});
+
+ app.configure(function () {
+
+    if (env === 'production') {
+        app.use(forceSsl);
+    }
 });
 
 // error handler
