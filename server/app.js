@@ -73,12 +73,9 @@ app.use(function(req, res, next) {
   next(err);
 });
 
- app.configure(function () {
-
-    if (env === 'production') {
-        app.use(forceSsl);
-    }
-});
+if (env === 'production') {
+    app.use(forceSsl);
+}
 
 // error handler
 app.use(function(err, req, res, next) {
