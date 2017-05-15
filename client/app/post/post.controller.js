@@ -23,7 +23,7 @@
       postCtrl.post.expireAt = postCtrl.post.expireAt || postCtrl.expireTimes[0];
       postCtrl.post.syntax = postCtrl.post.syntax || postCtrl.syntax[0];
     }
-    console.log('post is:', post);
+    // console.log('post is:', post);
     postCtrl.newPostError = false;
 
     postCtrl.createPost = function(newPost) {
