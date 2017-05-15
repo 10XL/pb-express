@@ -17,7 +17,7 @@ gulp.task('usemin', function() {
 			css: [minifycss(), rev()],
 			js: [ngannotate(), uglify(), rev()]
 		}))
-		.pipe(gulp.dest('dist/'));
+		.pipe(gulp.dest('../postbucket-angular/'));
 });
 
 gulp.task('clean', function() {
