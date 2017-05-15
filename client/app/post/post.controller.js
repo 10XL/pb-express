@@ -22,6 +22,7 @@
       postCtrl.post.public = post.public || true;
       postCtrl.post.expireAt = postCtrl.post.expireAt || postCtrl.expireTimes[0];
       postCtrl.post.syntax = postCtrl.post.syntax || postCtrl.syntax[0];
+      postCtrl.post.title = postCtrl.post.title || "Untitled";
     }
     // console.log('post is:', post);
     postCtrl.newPostError = false;
