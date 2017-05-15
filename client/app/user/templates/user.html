@@ -1,0 +1,32 @@
+<div class="error-msg" ng-if="$ctrl.posts===404">
+	Error 404! User: <b>{{$ctrl.username}}</b> not found.
+</div>
+<div ng-if="$ctrl.posts!==404">
+	<div>{{$ctrl.username}}'s Posts List:</div>
+	<div>
+		<table class="table">
+			<caption>Latest public posts</caption>
+			
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Created</th>
+					<th>Expires</th>
+					<th>Views</th>
+					<th>Syntax</th>
+				</tr>
+			</thead>
+			
+			<tbody class="table-striped">
+				<tr ng-repeat="post in $ctrl.posts">
+					<td><a ui-sref="pb.viewPost({postId:post._id})">{{post.name}}</a></td>
+					<td>{{post.createdAt | date : format : timezone}}</td>
+					<td>{{ (post.expireAt | amCalendar:referenceTime:formats ) || 'Never'}}</td>
+					<td>{{post.views}}</td>
+					<td>{{post.syntax}}</td>
+				</tr>
+			</tbody>
+			
+		</table>
+	</div>
+</div>

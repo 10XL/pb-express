@@ -1,0 +1,48 @@
+ <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <form class="form-horizontal" role="form" name="newPostForm" ng-submit="postCtrl.createPost(postCtrl.post)" novalidate>
+                    <div class="form-group"">
+                        <label for="new-post-text" class="col-sm-2 control-label">New Post</label>
+                        <div class="col-sm-10">
+                            <textarea type="text" class="form-control" id="new-post-text" name="text" rows="30" ng-model="postCtrl.post.text" required></textarea>
+                        </div>
+                    </div> 
+                    <div class="form-group"">
+                        <label for="title" class="col-sm-2 control-label">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Title of post" ng-model="postCtrl.post.name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="syntax" class="col-sm-2 control-label" style="">Syntax</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" name="syntax" id="syntax" ng-model="postCtrl.post.syntax">
+                                  <option ng-repeat="time in postCtrl.syntax" value="{{time}}">{{time}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiration" class="col-sm-2 control-label new-post-label">Expiration</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" name="expiration" id="expiration" ng-model="postCtrl.post.expireAt">
+                                  <option ng-repeat="time in postCtrl.expireTimes" value="{{time}}">{{time}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                       <div class="checkbox col-sm-5 col-sm-offset-2">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="public" value="1"
+                                ng-model="postCtrl.post.public">
+                                <strong>Public</strong>
+                            </label>
+                        </div>
+                    </div>                    
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary" ng-disabled="newPostForm.$invalid">Send Feedback</button>
+                        </div>
+                    </div>
+                </form>
+            </div>

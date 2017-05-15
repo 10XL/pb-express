@@ -1,0 +1,28 @@
+<div class="row">
+	<div class="error-msg" ng-if="postCtrl.post===404">
+		Error 404! Post not found.
+	</div>
+	<div ng-if="postCtrl.post!==404" class="container">
+		<div class="post-head col-sm-10">
+			<h2 class="post-title">{{postCtrl.post.name}}</h2>
+			<div class="post-author col-sm-2">Author:
+				<a ng-if="postCtrl.post.author" class="" ui-sref="pb.user({username: postCtrl.post.author.username})">{{postCtrl.post.author.username}}</a>
+				<span ng-if="!postCtrl.post.author" class="">Guest</span>
+			</div>
+			<div class="post-expires col-sm-3">Created: {{ (postCtrl.post.createdAt | amCalendar:referenceTime:formats ) || 'Never'}}</div>
+			<div class="post-views col-sm-2">Views: {{postCtrl.post.views}}</div>
+			<div class="post-expires col-sm-2">Expires: {{ (postCtrl.post.expireAt | amCalendar:referenceTime:formats ) || 'Never'}}</div>
+			<div class="post-syntax col-sm-2">Syntax: {{postCtrl.post.syntax}}</div>
+		</div>
+
+		<div class="recent-post col-sm-10" style="padding-bottom: 5px;"></div>
+
+		<div class="post-body col-sm-10">
+			<div class="" name="post-text" id="post-text">
+				<div class="col-sm-1">Post:</div>
+				<div ng-if="postCtrl.post.syntax!=='None'" hljs hljs-language="{{postCtrl.post.syntax}}" hljs-source="postCtrl.post.text"></div>
+				<div ng-if="postCtrl.post.syntax==='None'" ><pre><code>{{postCtrl.post.text}}</code></pre></div>
+			</div>
+		</div>
+	</div>
+</div>

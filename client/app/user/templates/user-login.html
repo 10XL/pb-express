@@ -1,0 +1,28 @@
+<h2>User Sign In</h2>
+<div class="error-msg" ng-if="$ctrl.loginError">Incorrect username or password!</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-12">
+        <form class="form-horizontal" role="form" name="loginForm" ng-submit="$ctrl.loginUser($ctrl.login)" novalidate>
+
+            <div class="form-group"">
+                <label for="username" class="col-sm-2 control-label">Username</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" ng-model="$ctrl.login.username" required>
+                </div>
+            </div>
+
+            <div class="form-group"">
+                <label for="password" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-4">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="$ctrl.login.password" required>
+                </div>
+            </div>      
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

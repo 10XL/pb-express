@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+
+
+<html ng-app="postbucket">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/css/styles/default.css">
+        <!-- endbuild -->
+        <title>PostBucket: Another text tool!</title>
+    </head>
+    <body>
+        <div class="container main-content">
+            
+                <div class="container"> <ui-view name="header"></ui-view></div>
+            </div>
+            <div class="container-fluid">
+                <div style2="border: solid orange 4px">
+                    <ui-view name="postbucket">
+                    <div>
+                        <h2>Loading Site...</h2>
+                    </div>
+                    </ui-view>
+                </div>
+            </div>
+            <div>
+                <div> <ui-view name="footer"></ui-view> </div>
+            </div>
+        </div>
+        <!-- build:js scripts/main.js -->
+        <!-- Libraries -->
+        <script src="assets/js/angular.min.js"></script>
+        <script src="assets/js/angular-ui-router.min.js"></script>
+        <script src="assets/js/moment.min.js"></script>
+        <script src="assets/js/angular-moment.min.js"></script>
+        <script src="assets/js/highlight.pack.js"></script>
+        <script src="assets/js/angular-highlightjs.min.js"></script>
+
+        <!-- Modules -->
+        <script src="app/postbucket.module.js"></script>
+        <!-- Routes -->
+        <script src="app/postbucket.routes.js"></script>
+        <!-- Posts -->
+        <script src="app/post/post.service.js"></script>
+        <script src="app/post/post.controller.js"></script>
+        
+        <!-- User -->
+        <script src="app/user/user.service.js"></script>
+        <script src="app/user/user.controller.js"></script>
+        <!-- endbuild -->
+    </body>
+</html>

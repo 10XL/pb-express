@@ -1,0 +1,49 @@
+.container.main-content {
+	width: 100%
+}
+
+#header-logo {
+    cursor: pointer;
+    float: left;
+    font-size: 2em;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+.footer {
+    font-size: 0.75em;
+    letter-spacing: 4px;
+    padding-top: 25px;
+    padding-bottom: 5px;
+}
+
+li > .nav-link {
+	cursor: pointer;
+}
+
+.recent-post-time {
+	display: block;
+}
+
+.recent-post {
+	border-top: 1.5px dotted #ddd;
+}
+
+.post-title {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.error-msg {
+    color: red;
+}
+#new-post-text {
+    resize: none;
+}
+body {
+    padding-top: 70px;
+}
+.footer {
+    padding-top: 70px;
+    text-align: center;
+}
