@@ -25,21 +25,13 @@ var postRouter = require('./routes/postRouter');
 
 var app = express();
 
-// Secure traffic only
-// app.all('*', function(req, res, next){
-//     console.log('req start: ',req.secure, req.hostname, req.url, app.get('port'));
-//   if (req.secure) {
-//     return next();
-//   }
-//  res.redirect('https://'+req.hostname+':'+app.get('secPort')+req.url);
-// });
-
- var forceSsl = function (req, res, next) {
-    if (req.headers['x-forwarded-proto'] !== 'https') {
-        return res.redirect(['https://', req.get('Host'), req.url].join(''));
-    }
-    return next();
- };
+/* Redirect http to https */
+app.get('*', function(req,res,next) {
+  if(req.headers['x-forwarded-proto'] != 'https' && process.env.NODE_ENV === 'production')
+    res.redirect('https://'+req.hostname+req.url)
+  else
+    next() /* Continue to other routes if we're not redirecting */
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -72,10 +64,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-if (env === 'production') {
-    app.use(forceSsl);
-}
 
 // error handler
 app.use(function(err, req, res, next) {
