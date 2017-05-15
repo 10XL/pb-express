@@ -36,7 +36,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 // set this to '../client' to serve angular app or minify to this public directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // required for passport
 app.use(session({
@@ -48,7 +48,7 @@ app.use(passport.initialize());
 
 
 app.use('/user', userRouter);
-app.use('/', postRouter);
+app.use('/post', postRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

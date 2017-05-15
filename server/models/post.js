@@ -27,8 +27,8 @@ var Post = new Schema({
     default: true
   },
   author: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'users'
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   },
   views: {
     type: Number,
@@ -42,6 +42,10 @@ var Post = new Schema({
 });
 
 // Expire at the time indicated by the expireAt field
-Post.index({ expireAt: 1 }, { expireAfterSeconds : 0 });
+Post.index({
+  expireAt: 1
+}, {
+  expireAfterSeconds: 0
+});
 
-module.exports = mongoose.model('posts', Post);
+module.exports = mongoose.model('Post', Post);

@@ -4,7 +4,7 @@ var config = require('./config.js');
 
 exports.getToken = function(user) {
   return jwt.sign(user, config.jwtSecret, {
-    expiresIn: 3600
+    expiresIn: 604800
   });
 };
 
@@ -17,10 +17,12 @@ exports.verifyLoggedIn = function(req, res, next) {
         return next();
       } else {
         req.decoded = decoded;
-        next();
+        return next();
       }
     });
-  }
+
+  } else // no token so go along with the post
+    return next();
 };
 
 exports.verifyOrdinaryUser = function(req, res, next) {
@@ -38,7 +40,7 @@ exports.verifyOrdinaryUser = function(req, res, next) {
       } else {
         // if everything is good, save to request for use in other routes
         req.decoded = decoded;
-        next();
+        return next();
       }
     });
   } else {
