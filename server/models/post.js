@@ -15,7 +15,7 @@ var Post = new Schema({
   },
   syntax: {
     type: String,
-    enum: ['None', 'HTML', 'Javascript', 'Python', 'Ruby'],
+    enum: ["None", "Apache", "Bash", "CSS", "Coffeescript", "Cpp", "Csharp", "Diff", "HTML", "HTTP", "Ini", "JSON", "Java", "Javascript", "Makefile", "Markdown", "Nginx", "ObjectiveC", "PHP", "Perl", "Python", "Ruby", "SQL", "Shell", "XML"],
     default: 'None'
   },
   text: {
