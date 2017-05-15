@@ -13,7 +13,7 @@
 				<ul class="list list-unstyled" ng-repeat="post in pbCtrl.recentPosts">
 					<li class="recent-post">
 						<a class="recent-post-link" ui-sref="pb.viewPost({postId: post._id})">{{ post.name | limitTo: 20 }}{{post.name.length > 20 ? '...' : ''}}</a>
-						<span class="recent-post-time"><small><time am-time-ago="post.createdAt"></time></small></span>
+						<span class="recent-post-time"><small><span ng-if="post.syntax!=='None'">{{post.syntax}} | </span><time am-time-ago="post.createdAt"></time></small></span>
 					</li>
 				</ul>
 			</div>
