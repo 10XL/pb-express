@@ -31,7 +31,7 @@
       UserService.loginUser(userLogin).then(
         function(res) {
           if (res) {
-            console.log('userCtrl.loginUser: res.data is:', res);
+            // console.log('userCtrl.loginUser: res.data is:', res);
             UserService.loggedIn = true;
             $state.go('pb.home', {}, {
               reload: true
@@ -47,7 +47,7 @@
     userCtrl.logoutUser = function() {
       UserService.logoutUser().then(
         function(res) {
-          console.log('userCtrl.logoutUser: res.data is:', res);
+          // console.log('userCtrl.logoutUser: res.data is:', res);
           UserService.loggedIn = false;
           $state.go('pb.home', {}, {
             reload: true
@@ -59,10 +59,10 @@
       UserService.createUser(userLogin).then(
         function(res) {
           if (res.err) {
-            console.log('userCtrl.createUser: ERR. res.err exists and is: ', res.err);
+            // console.log('userCtrl.createUser: ERR. res.err exists and is: ', res.err);
             userCtrl.signupError = res.err.message; // show error message and then clear form
           } else {
-            console.log('userCtrl.createUser: res.data is:', res.data);
+            // console.log('userCtrl.createUser: res.data is:', res.data);
             userCtrl.signupError = false;
             $state.go('pb.login', {}, {
               reload: true
