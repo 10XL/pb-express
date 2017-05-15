@@ -4,9 +4,9 @@
   angular.module('postbucket')
     .config(Routes);
 
-  Routes.$inject = ['$stateProvider', '$urlRouterProvider'];
+  Routes.$inject = ['$stateProvider', '$locationProvider', '$urlRouterProvider'];
 
-  function Routes($stateProvider, $urlRouterProvider) {
+  function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
 
     $stateProvider
       .state('pb', {
@@ -126,5 +126,7 @@
       });
 
     $urlRouterProvider.otherwise('/');
+    // use the HTML5 History API
+    $locationProvider.html5Mode(true);
   }
 })();
